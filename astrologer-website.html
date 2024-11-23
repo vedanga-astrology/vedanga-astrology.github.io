@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedanga Astrology - by Acharya Meenakshi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-tan: #B69B6D;
+            --text-dark: #2D3142;
+            --text-light: #666666;
+            --background-light: #F8F8F8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: white;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .site-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .site-subtitle {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-tan);
+        }
+
+        .hero {
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            background-color: var(--primary-tan);
+            padding: 3rem;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 600px;
+            background-color: var(--background-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .social-section {
+            padding: 4rem 2rem;
+            background-color: var(--background-light);
+        }
+
+        .social-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-button.instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .social-button.facebook {
+            background-color: #1877F2;
+        }
+
+        .social-button.youtube {
+            background-color: #FF0000;
+        }
+
+        .feed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feed-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .feed-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .feed-date {
+            font-size: 0.9rem;
+        }
+
+        .feed-content img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #25D366;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #20bd5a;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                padding: 2rem 1rem;
+            }
+
+            .hero-content, .hero-image {
+                max-width: 100%;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            nav a {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">Vedanga Astrology</h1>
+        <p class="site-subtitle">by Acharya Meenakshi</p>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#contact">Contact</a>
+            <a href="#book">Book Online</a>
+            <a href="#blog">Blog</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Welcome to Vedanga Astrology</h2>
+            <p class="hero-text">
+                Welcome, I'm thrilled the stars have brought you here. I'm a successful Astrologer based in New Delhi - here to guide you through life's most complex and difficult matters. Whatever you're going through, I'm here to help you find your way forward.
+            </p>
+            <p class="hero-text">
+                Despite being a Chartered Accountant, I was always drawn to spirituality and astrology. I studied Vedic Astrology, KP, Nadi Astrology, and Palmistry from Bharatiya Vidya Bhawan, under the able guidance of Shri KN Rao and Shri AV Sundaram, among others.
+            </p>
+            <p class="hero-text">
+                Let me do the same for you as I have done for so many others since 2014. Contact me to schedule an appointment or phone call reading.
+            </p>
+        </div>
+        <div class="hero-image">
+            <img src="/api/placeholder/600/600" alt="Vedic Astrology Illustration" />
+        </div>
+    </section>
+
+    <section class="social-section">
+        <div class="social-container">
+            <div class="social-buttons">
+                <a href="#" class="social-button instagram">
+                    <i class="fab fa-instagram"></i>
+                    Follow on Instagram
+                </a>
+                <a href="#" class="social-button facebook">
+                    <i class="fab fa-facebook"></i>
+                    Follow on Facebook
+                </a>
+                <a href="#" class="social-button youtube">
+                    <i class="fab fa-youtube"></i>
+                    Subscribe on YouTube
+                </a>
+            </div>
+            <div class="feed-grid">
+                <!-- Example combined feed items sorted by date -->
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <i class="fab fa-instagram"></i>
+                        <span class="feed-date">2 hours ago</span>
+                    </div>
+                    <div class="feed-content">
+                        <img src="/api/placeholder/300/300" alt="Instagram Post" />
+                        <p>Latest insights on planetary alignments and their impact on your life...</p>
+                    </div>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <i class="fab fa-youtube"></i>
+                        <span class="feed-date">1 day ago</span>
+                    </div>
+                    <div class="feed-content">
+                        <img src="/api/placeholder/300/200" alt="YouTube Thumbnail" />
+                        <p>New video: Understanding the basics of Vedic Astrology...</p>
+                    </div>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <i class="fab fa-facebook"></i>
+                        <span class="feed-date">2 days ago</span>
+                    </div>
+                    <div class="feed-content">
+                        <img src="/api/placeholder/300/300" alt="Facebook Post" />
+                        <p>Join our upcoming live session on relationship compatibility...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us instantly via WhatsApp for quick responses and personalized astrological guidance.</p>
+            <a href="https://wa.me/YOUR_PHONE_NUMBER" class="whatsapp-button">
+                <i class="fab fa-whatsapp"></i>
+                Message on WhatsApp
+            </a>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.1584665447!2d77.2269!3d28.6129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2daa9eb4d0b%3A0x717971125923e5d!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1637309850935!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+</body>
+</html>
